@@ -32,8 +32,46 @@
           src="cartel-holywins.jpg"
           alt="Cartel Gran fiesta de Holywins - 31 de octubre - Parroquia Santa María Micaela"
           class="poster-image"
-          onerror="this.onerror=null; this.src='file:///C:/Users/perezd/.gemini/antigravity/brain/0b3a934d-b15e-403c-ba1b-8d066c9342dd/.user_uploaded/media_1793052047494_483ef32a.jpg';"
         >
+        <script>
+          (function () {
+            const img = document.getElementById("poster-img");
+            const candidatos = [
+              "cartel-holywins.jpg.jpg",
+              "cartel-holywins.jpeg",
+              "cartel-holywins.jpg.jpeg",
+              "cartel-holywins.png",
+              "cartel-holywins.jpg.png",
+              "cartel-holywins.JPG",
+              "Cartel-holywins.jpg",
+              "Cartel-Holywins.jpg",
+              "cartel-hollywins.jpg",
+              "cartel-hollywins.jpg.jpg",
+              "cartel-hollywins.jpeg",
+              "cartel-hollywins.png",
+              "cartel_holywins.jpg",
+              "cartel_hollywins.jpg",
+              "cartel.jpg",
+              "cartel.jpg.jpg",
+              "cartel.jpeg",
+              "cartel.png",
+              "holywins.jpg",
+              "hollywins.jpg",
+              "Hollywins.jpg",
+              "Holywins.jpg",
+              "media_1793052047494_483ef32a.jpg",
+              "file:///C:/Users/perezd/.gemini/antigravity/brain/0b3a934d-b15e-403c-ba1b-8d066c9342dd/.user_uploaded/media_1793052047494_483ef32a.jpg"
+            ];
+            let idx = 0;
+            img.onerror = function () {
+              if (idx < candidatos.length) {
+                img.src = candidatos[idx++];
+              } else {
+                img.onerror = null;
+              }
+            };
+          })();
+        </script>
       </div>
 
       <!-- Resumen extraído del cartel para lectura rápida en el móvil -->
