@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Gran Fiesta de Holywins - 31 de octubre | Parroquia Santa María Micaela</title>
+  <meta name="description" content="¡Te esperamos el 31 de octubre a las 12:30 h en la Parroquia Santa María Micaela! Trae tu bocata, ven disfrazado de tu santo preferido. Eucaristía a las 18:30 h. Confirma vuestra asistencia de forma 100% anónima.">
+
+  <!-- Meta etiquetas Open Graph para compartir en WhatsApp y Telegram -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="✨ Gran Fiesta de Holywins - 31 de octubre ✨">
+  <meta property="og:description" content="📍 Parroquia Santa María Micaela | 🕧 12:30 h Comida de bocata, juegos y disfraces | ⛪ 18:30 h Eucaristía y perritos calientes. ¡Confirma cuántos venís!">
+  <meta property="og:image" content="cartel-holywins.jpg">
+  <meta name="theme-color" content="#fdf6ec">
+
+  <!-- Fuentes redondeadas y cálidas acordes al cartel en acuarela -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="watercolor-bg" aria-hidden="true"></div>
+
+  <main class="mobile-container">
+    <!-- 1. CABECERA Y CARTEL DEL EVENTO -->
+    <header class="hero-card">
+      <div class="poster-wrapper">
+        <img
+          id="poster-img"
+          src="cartel-holywins.jpg"
+          alt="Cartel Gran fiesta de Holywins - 31 de octubre - Parroquia Santa María Micaela"
+          class="poster-image"
+          onerror="this.onerror=null; this.src='file:///C:/Users/perezd/.gemini/antigravity/brain/0b3a934d-b15e-403c-ba1b-8d066c9342dd/.user_uploaded/media_1793052047494_483ef32a.jpg';"
+        >
+      </div>
+
+      <!-- Resumen extraído del cartel para lectura rápida en el móvil -->
+      <section class="event-details" aria-label="Información del evento">
+        <div class="event-badge">✨ Invitación Parroquial ✨</div>
+        <h1 class="event-title">Gran fiesta de <span>Holywins</span></h1>
+        <p class="event-date">📅 <strong>31 de octubre</strong></p>
+
+        <div class="schedule-grid">
+          <div class="schedule-item">
+            <span class="schedule-icon" aria-hidden="true">🕧</span>
+            <div class="schedule-text">
+              <strong>Te esperamos a las 12:30 h</strong>
+              <span>🥖 Trae tu bocata y comemos juntos</span>
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <span class="schedule-icon" aria-hidden="true">👼</span>
+            <div class="schedule-text">
+              <strong>Juegos y concursos de disfraces</strong>
+              <span>¡Ven disfrazado de tu santo preferido!</span>
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <span class="schedule-icon" aria-hidden="true">⛪</span>
+            <div class="schedule-text">
+              <strong>Eucaristía a las 18:30 h</strong>
+              <span>🌭 Después, venta de deliciosos perritos y bebida</span>
+            </div>
+          </div>
+
+          <div class="schedule-item location-item">
+            <span class="schedule-icon" aria-hidden="true">📍</span>
+            <div class="schedule-text">
+              <strong>Parroquia Santa María Micaela</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- 2. ZONA DE CONFIRMACIÓN DE ASISTENCIA -->
+    <section class="rsvp-card" id="rsvp-section" aria-labelledby="rsvp-heading">
+      <h2 id="rsvp-heading" class="section-title">¿Contamos con vosotros?</h2>
+      <p class="section-subtitle">Ayúdanos a organizar la fiesta indicando si podréis venir</p>
+
+      <!-- Estado A: Cuando el usuario YA comunicó su opción -->
+      <div id="already-responded-view" class="already-responded hidden" aria-live="polite">
+        <div class="responded-badge">✅ Ya comunicaste tu opción</div>
+        <p id="responded-summary" class="responded-summary"></p>
+        <button type="button" id="btn-edit-response" class="btn btn-outline">
+          ✏️ Quiero hacer cambios
+        </button>
+      </div>
+
+      <!-- Estado B: Botones iniciales de decisión -->
+      <div id="choice-buttons-view" class="choice-buttons">
+        <button type="button" id="btn-will-attend" class="btn btn-primary btn-large">
+          🙌 ¡Asistiremos!
+        </button>
+        <button type="button" id="btn-wont-attend" class="btn btn-secondary">
+          🙏 No participaremos
+        </button>
+      </div>
+
+      <!-- Estado C: Selector de Adultos y Niños al pulsar "¡Asistiremos!" -->
+      <form id="attendees-form" class="attendees-form hidden" novalidate>
+        <p class="form-prompt">¡Qué alegría! ¿Cuántos vendréis en total?</p>
+
+        <div class="counter-row">
+          <div class="counter-info">
+            <span class="counter-emoji" aria-hidden="true">🧑</span>
+            <div>
+              <label for="input-adultos" class="counter-label">Adultos</label>
+              <span class="counter-hint">Jóvenes y adultos</span>
+            </div>
+          </div>
+          <div class="stepper">
+            <button type="button" class="stepper-btn" data-target="input-adultos" data-action="decrement" aria-label="Restar un adulto">−</button>
+            <input type="number" id="input-adultos" name="adultos" value="1" min="0" max="50" readonly aria-live="polite">
+            <button type="button" class="stepper-btn" data-target="input-adultos" data-action="increment" aria-label="Sumar un adulto">+</button>
+          </div>
+        </div>
+
+        <div class="counter-row">
+          <div class="counter-info">
+            <span class="counter-emoji" aria-hidden="true">🧒</span>
+            <div>
+              <label for="input-ninos" class="counter-label">Niños</label>
+              <span class="counter-hint">Pequeños santos</span>
+            </div>
+          </div>
+          <div class="stepper">
+            <button type="button" class="stepper-btn" data-target="input-ninos" data-action="decrement" aria-label="Restar un niño">−</button>
+            <input type="number" id="input-ninos" name="ninos" value="1" min="0" max="50" readonly aria-live="polite">
+            <button type="button" class="stepper-btn" data-target="input-ninos" data-action="increment" aria-label="Sumar un niño">+</button>
+          </div>
+        </div>
+
+        <p id="form-error" class="form-error hidden" role="alert">
+          Por favor, indica al menos 1 asistente (adulto o niño) o selecciona «No participaremos».
+        </p>
+
+        <div class="form-actions">
+          <button type="submit" id="btn-submit-attend" class="btn btn-primary btn-large">
+            ✨ Confirmar asistencia
+          </button>
+          <button type="button" id="btn-cancel-form" class="btn btn-text">
+            Volver atrás
+          </button>
+        </div>
+      </form>
+
+      <!-- Estado de carga / feedback de envío -->
+      <div id="rsvp-feedback" class="rsvp-feedback hidden" aria-live="polite"></div>
+    </section>
+
+    <!-- 3. CONTADOR EN VIVO Y MOTIVACIÓN VISUAL AL PIE -->
+    <section class="stats-card" aria-labelledby="stats-heading">
+      <div class="stats-header">
+        <h2 id="stats-heading" class="section-title">Participantes confirmados</h2>
+        <span id="last-updated-text" class="last-updated">En tiempo real</span>
+      </div>
+
+      <!-- Tarjeta motivadora dinámica según número de apuntados -->
+      <div id="motivation-banner" class="motivation-banner level-low">
+        <div class="motivation-top">
+          <span id="motivation-icon" class="motivation-icon" aria-hidden="true">🌱</span>
+          <div class="motivation-copy">
+            <strong id="motivation-title">¡Calentando motores para Holywins!</strong>
+            <p id="motivation-message">Sé de las primeras familias en confirmar y anima a la parroquia.</p>
+          </div>
+        </div>
+
+        <!-- Termómetro / barra festiva visual -->
+        <div class="party-meter-container" aria-hidden="true">
+          <div class="party-meter-track">
+            <div id="party-meter-fill" class="party-meter-fill" style="width: 12%;"></div>
+          </div>
+          <div class="party-meter-milestones">
+            <span>🌱 Inicio</span>
+            <span>✨ En marcha</span>
+            <span>🎉 ¡Gran fiesta!</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cifras contabilizadas (Total, Adultos, Niños) -->
+      <div class="numbers-grid">
+        <div class="number-box total-box">
+          <span class="number-value" id="stat-total">—</span>
+          <span class="number-label">Total asistentes</span>
+        </div>
+        <div class="number-box">
+          <span class="number-value" id="stat-adultos">—</span>
+          <span class="number-label">🧑 Adultos</span>
+        </div>
+        <div class="number-box">
+          <span class="number-value" id="stat-ninos">—</span>
+          <span class="number-label">🧒 Niños</span>
+        </div>
+      </div>
+
+      <!-- Barra de proporción visual Adultos / Niños -->
+      <div id="ratio-Wrapper" class="ratio-wrapper hidden">
+        <div class="ratio-bar">
+          <div id="ratio-adultos" class="ratio-segment ratio-adultos" style="width: 50%;" title="Adultos"></div>
+          <div id="ratio-ninos" class="ratio-segment ratio-ninos" style="width: 50%;" title="Niños"></div>
+        </div>
+        <div class="ratio-legend">
+          <span class="legend-item"><i class="dot dot-adultos"></i> Adultos (<span id="pct-adultos">0%</span>)</span>
+          <span class="legend-item"><i class="dot dot-ninos"></i> Niños (<span id="pct-ninos">0%</span>)</span>
+        </div>
+      </div>
+
+      <!-- Botón Actualizar Asistentes pedido explícitamente -->
+      <button type="button" id="btn-refresh-stats" class="btn btn-refresh">
+        <span id="refresh-icon" class="refresh-icon" aria-hidden="true">🔄</span>
+        <span id="refresh-text">Actualizar asistentes</span>
+      </button>
+    </section>
+
+    <!-- 4. PIE DE PÁGINA: INFORMACIÓN DE PRIVACIDAD Y ANONIMATO (AL FINAL DE LA PÁGINA) -->
+    <footer class="privacy-footer">
+      <div class="privacy-box">
+        <span class="privacy-icon" aria-hidden="true">🔒</span>
+        <p class="privacy-text">
+          <strong>Invitación 100% anónima:</strong> Esta página <strong>no recoge ningún dato personal ni de otro carácter</strong> (ni nombre, ni teléfono, ni correo, ni dirección IP). Únicamente contabiliza el número de adultos y niños para organizar la fiesta. Incluso si utilizas la opción <em>«Quiero hacer cambios»</em> para actualizar tu respuesta, el ajuste se realiza mediante un código aleatorio anónimo guardado únicamente en tu propio navegador, sin asociarse jamás a tu identidad.
+        </p>
+      </div>
+      <p class="parish-signature">Parroquia Santa María Micaela · Fiesta de Holywins</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
