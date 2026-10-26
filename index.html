@@ -239,12 +239,24 @@
         </div>
       </div>
 
-      <!-- Botón Actualizar Asistentes pedido explícitamente -->
+      <!-- Botón ¿Cómo vamos de asistentes? -->
       <button type="button" id="btn-refresh-stats" class="btn btn-refresh">
         <span id="refresh-icon" class="refresh-icon" aria-hidden="true">🔄</span>
-        <span id="refresh-text">Actualizar asistentes</span>
+        <span id="refresh-text">¿Cómo vamos de asistentes?</span>
       </button>
     </section>
+
+    <!-- Mensaje flotante tras confirmar decisión -->
+    <div id="floating-reminder" class="floating-reminder hidden" role="status" aria-live="polite">
+      <div class="floating-reminder-card">
+        <span class="floating-reminder-icon" aria-hidden="true">🔔</span>
+        <div class="floating-reminder-content">
+          <strong>¡Respuesta registrada!</strong>
+          <p>Vuelve al enlace para ver los participantes.</p>
+        </div>
+        <button type="button" id="btn-close-floating" class="floating-reminder-close" aria-label="Cerrar aviso">Entendido</button>
+      </div>
+    </div>
 
     <!-- 4. PIE DE PÁGINA: INFORMACIÓN DE PRIVACIDAD Y ANONIMATO (AL FINAL DE LA PÁGINA) -->
     <footer class="privacy-footer">

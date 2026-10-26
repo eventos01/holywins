@@ -53,6 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const refreshIcon = document.getElementById("refresh-icon");
   const refreshText = document.getElementById("refresh-text");
 
+  const floatingReminder = document.getElementById("floating-reminder");
+  const btnCloseFloating = document.getElementById("btn-close-floating");
+  let floatingTimer = null;
+
   // 1. Obtener o generar el token anónimo aleatorio para este navegador
   function getOrCreateAnonToken() {
     let token = localStorage.getItem(STORAGE_TOKEN_KEY);
@@ -246,6 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Actualizar vista de botones y estadísticas al pie
       renderRsvpState(false);
       renderStatsUI(updatedStats);
+      showFloatingReminder();
 
       if (status === "ASISTE") {
         showFeedback(
@@ -412,14 +417,30 @@ document.addEventListener("DOMContentLoaded", () => {
     rsvpFeedback.classList.remove("hidden");
   }
 
+  function showFloatingReminder() {
+    if (!floatingReminder) return;
+    floatingReminder.classList.remove("hidden");
+    if (floatingTimer) clearTimeout(floatingTimer);
+    floatingTimer = setTimeout(() => {
+      floatingReminder.classList.add("hidden");
+    }, 9000);
+  }
+
+  if (btnCloseFloating) {
+    btnCloseFloating.addEventListener("click", () => {
+      floatingReminder.classList.add("hidden");
+      if (floatingTimer) clearTimeout(floatingTimer);
+    });
+  }
+
   function setRefreshLoading(isLoading) {
     btnRefreshStats.disabled = isLoading;
     if (isLoading) {
       refreshIcon.classList.add("spinning");
-      refreshText.textContent = "Actualizando...";
+      refreshText.textContent = "Consultando asistentes...";
     } else {
       refreshIcon.classList.remove("spinning");
-      refreshText.textContent = "Actualizar asistentes";
+      refreshText.textContent = "¿Cómo vamos de asistentes?";
     }
   }
 
