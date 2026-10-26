@@ -77,14 +77,15 @@ body {
   width: 100%;
   background: #f9f3eb;
   position: relative;
-  line-height: 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .poster-image {
   width: 100%;
-  height: auto;
+  max-width: 100%;
+  height: auto !important;
   display: block;
-  object-fit: contain;
 }
 
 .event-details {
