@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Gran Fiesta de Holywins - 31 de octubre | Parroquia Santa María Micaela</title>
-  <meta name="description" content="¡Te esperamos el 31 de octubre a las 12:30 h en la Parroquia Santa María Micaela! Trae tu bocata, ven disfrazado de tu santo preferido. Eucaristía a las 18:30 h. Confirma vuestra asistencia de forma 100% anónima.">
+  <meta name="description"
+    content="¡Te esperamos el 31 de octubre a las 12:30 h en la Parroquia Santa María Micaela! Trae tu bocata, ven disfrazado de tu santo preferido. Eucaristía a las 18:30 h. Confirma vuestra asistencia de forma 100% anónima.">
 
   <!-- Meta etiquetas Open Graph para compartir en WhatsApp y Telegram -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="✨ Gran Fiesta de Holywins - 31 de octubre ✨">
-  <meta property="og:description" content="📍 Parroquia Santa María Micaela | 🕧 12:30 h Comida de bocata, juegos y disfraces | ⛪ 18:30 h Eucaristía y perritos calientes. ¡Confirma cuántos venís!">
+  <meta property="og:description"
+    content="📍 Parroquia Santa María Micaela | 🕧 12:30 h Comida de bocata, juegos y disfraces | ⛪ 18:30 h Eucaristía y perritos calientes. ¡Confirma cuántos venís!">
   <meta property="og:image" content="CARTEL_HOLYWINS.jpg">
   <meta name="theme-color" content="#fdf6ec">
 
   <!-- Fuentes redondeadas y cálidas acordes al cartel en acuarela -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="watercolor-bg" aria-hidden="true"></div>
 
@@ -27,13 +33,9 @@
     <!-- 1. CABECERA Y CARTEL DEL EVENTO -->
     <header class="hero-card">
       <div class="poster-wrapper">
-        <img
-          id="poster-img"
-          src="CARTEL_HOLYWINS.jpg"
-          alt="Cartel Gran fiesta de Holywins - 31 de octubre - Parroquia Santa María Micaela"
-          class="poster-image"
-          style="width: 100%; max-width: 100%; height: auto; display: block;"
-        >
+        <img id="poster-img" src="CARTEL_HOLYWINS.jpg"
+          alt="Cartel Gran fiesta de Holywins - 31 de octubre - Parroquia Santa María Micaela" class="poster-image"
+          style="width: 100%; max-width: 100%; height: auto; display: block;">
         <script>
           (function () {
             const img = document.getElementById("poster-img");
@@ -142,9 +144,12 @@
             </div>
           </div>
           <div class="stepper">
-            <button type="button" class="stepper-btn" data-target="input-adultos" data-action="decrement" aria-label="Restar un adulto">−</button>
-            <input type="number" id="input-adultos" name="adultos" value="1" min="0" max="50" readonly aria-live="polite">
-            <button type="button" class="stepper-btn" data-target="input-adultos" data-action="increment" aria-label="Sumar un adulto">+</button>
+            <button type="button" class="stepper-btn" data-target="input-adultos" data-action="decrement"
+              aria-label="Restar un adulto">−</button>
+            <input type="number" id="input-adultos" name="adultos" value="1" min="0" max="50" readonly
+              aria-live="polite">
+            <button type="button" class="stepper-btn" data-target="input-adultos" data-action="increment"
+              aria-label="Sumar un adulto">+</button>
           </div>
         </div>
 
@@ -157,9 +162,11 @@
             </div>
           </div>
           <div class="stepper">
-            <button type="button" class="stepper-btn" data-target="input-ninos" data-action="decrement" aria-label="Restar un niño">−</button>
+            <button type="button" class="stepper-btn" data-target="input-ninos" data-action="decrement"
+              aria-label="Restar un niño">−</button>
             <input type="number" id="input-ninos" name="ninos" value="1" min="0" max="50" readonly aria-live="polite">
-            <button type="button" class="stepper-btn" data-target="input-ninos" data-action="increment" aria-label="Sumar un niño">+</button>
+            <button type="button" class="stepper-btn" data-target="input-ninos" data-action="increment"
+              aria-label="Sumar un niño">+</button>
           </div>
         </div>
 
@@ -252,9 +259,10 @@
         <span class="floating-reminder-icon" aria-hidden="true">🔔</span>
         <div class="floating-reminder-content">
           <strong>¡Respuesta registrada!</strong>
-          <p>Vuelve al enlace para ver los participantes.</p>
+          <p>Vuelve y refresca la página para ver el número de participantes.</p>
         </div>
-        <button type="button" id="btn-close-floating" class="floating-reminder-close" aria-label="Cerrar aviso">Entendido</button>
+        <button type="button" id="btn-close-floating" class="floating-reminder-close"
+          aria-label="Cerrar aviso">Entendido</button>
       </div>
     </div>
 
@@ -263,7 +271,11 @@
       <div class="privacy-box">
         <span class="privacy-icon" aria-hidden="true">🔒</span>
         <p class="privacy-text">
-          <strong>Invitación 100% anónima:</strong> Esta página <strong>no recoge ningún dato personal ni de otro carácter</strong> (ni nombre, ni teléfono, ni correo, ni dirección IP). Únicamente contabiliza el número de adultos y niños para organizar la fiesta. Incluso si utilizas la opción <em>«Quiero hacer cambios»</em> para actualizar tu respuesta, el ajuste se realiza mediante un código aleatorio anónimo guardado únicamente en tu propio navegador, sin asociarse jamás a tu identidad.
+          <strong>Invitación 100% anónima:</strong> Esta página <strong>no recoge ningún dato personal ni de otro
+            carácter</strong> (ni nombre, ni teléfono, ni correo, ni dirección IP). Únicamente contabiliza el número de
+          adultos y niños para organizar la fiesta. Incluso si utilizas la opción <em>«Quiero hacer cambios»</em> para
+          actualizar tu respuesta, el ajuste se realiza mediante un código aleatorio anónimo guardado únicamente en tu
+          propio navegador, sin asociarse jamás a tu identidad.
         </p>
       </div>
       <p class="parish-signature">Parroquia Santa María Micaela · Fiesta de Holywins</p>
@@ -272,4 +284,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>
